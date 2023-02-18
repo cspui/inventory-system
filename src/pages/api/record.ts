@@ -1,37 +1,30 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import path from 'path';
 
-const fsp = require('fs').promises;
+import clientPromise from '@/mongodb';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  switch (req.method) {
-    case 'POST':
-      try {
-        const body = JSON.parse(req.body);
-        const updateList = {
-          record: body,
-        };
-        fsp.writeFile(
-          path.join(process.cwd(), 'src/pages/api/data.json'),
-          JSON.stringify(updateList)
-        );
+  const client = await clientPromise;
+  const collection = client.db('Inventory-system').collection('Stock');
 
-        res.status(200).json(body);
-      } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: 'Error writing data' + error });
-      }
-      return;
+  const bodyObject = req.body ? req.body : {};
+  let response;
+
+  switch (req.method) {
+    case 'DELETE':
+      response = await collection.deleteOne({ id: bodyObject.id });
+      res.json(response);
+      break;
+    case 'PUT':
+      response = await collection.updateOne({ id: bodyObject.id }, { $set: { bodyObject } });
+      res.json(response);
+      break;
+    case 'POST':
+      response = await collection.insertOne(bodyObject);
+      res.json(response);
+      break;
     case 'GET':
-    default:
-      try {
-        const file_data = await fsp.readFile(path.join(process.cwd(), 'src/pages/api/data.json'));
-        const json_data = JSON.parse(file_data);
-        res.status(200).json(json_data.record);
-      } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: 'Error reading data' + error });
-      }
-      return;
+      response = await collection.find({}).toArray();
+      res.json({ status: 200, data: response });
+      break;
   }
 }

@@ -11,7 +11,7 @@ const Layout = ({ children }: IProps) => {
   return (
     <>
       <Navbar />
-      <main>{children}</main>
+      <main className='m-auto max-w-5xl p-2'>{children}</main>
       {/* <Footer /> */}
     </>
   );

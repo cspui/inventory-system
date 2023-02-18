@@ -5,14 +5,11 @@ import { useGetRecord } from '@/hooks/useGetRecord';
 import StockDesktopTable from './StockDesktopTable';
 import StockMobileTable from './StockMobileTable';
 
-type Props = {};
-
-const Stock = (props: Props) => {
+const Stock = () => {
   const { data, isError, isLoading } = useGetRecord();
 
   const renderContent = () => {
     if (isError) return <div>Error {isError}</div>;
-
     if (isLoading) return <div>Loading...</div>;
 
     return (
@@ -34,7 +31,7 @@ const Stock = (props: Props) => {
 
   return (
     <div>
-      <p>Stock</p>
+      <h2 className='text-3xl font-bold'>Stock</h2>
 
       {renderContent()}
     </div>

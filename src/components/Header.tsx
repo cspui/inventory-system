@@ -22,8 +22,8 @@ const Header = ({ title, description, imageUrl }: IProps) => {
       <meta property='og:description' content={description || t('COMMON_DESCRIPTION')} />
       <meta name='twitter:description' content={description || t('COMMON_DESCRIPTION')} />
 
-      <meta property='og:image' content={imageUrl || `https://iili.io/HnohjiN.md.png`} />
-      <meta name='twitter:image:src' content={imageUrl || `https://iili.io/HnohjiN.md.png`} />
+      {/* <meta property='og:image' content={imageUrl || `https://iili.io/HnohjiN.md.png`} />
+      <meta name='twitter:image:src' content={imageUrl || `https://iili.io/HnohjiN.md.png`} /> */}
       <meta name='twitter:card' content='summary_large_image' />
 
       <meta

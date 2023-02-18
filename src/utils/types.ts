@@ -15,7 +15,7 @@ export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 };
 
 export type StockRecord = {
-  id: string;
+  id: number;
   name: string;
   quantity: number;
   value: number;

@@ -3,11 +3,12 @@ import useSWR from 'swr';
 import { fetcher } from '@/utils/helper';
 
 export const useGetRecord = () => {
-  const { data, error, isLoading } = useSWR(`/api/record`, fetcher);
+  const { data, error, isLoading, isValidating, mutate } = useSWR(`/api/record`, fetcher);
 
   return {
-    data,
-    isLoading,
+    data: data ? data.data : undefined,
+    isLoading: isLoading || isValidating,
     isError: error,
+    refetch: mutate,
   };
 };
