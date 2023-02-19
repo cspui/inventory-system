@@ -3,8 +3,6 @@ import { MongoClient } from 'mongodb';
 const uri = process.env.MONGODB_URI as string; // your mongodb connection string
 const options = {};
 
-console.log('uri', uri);
-
 let client;
 let clientPromise: Promise<any>;
 
@@ -15,13 +13,6 @@ declare global {
 if (!process.env.MONGODB_URI) {
   throw new Error('Please add your Mongo URI to .env.local');
 }
-
-if (!uri.startsWith('mongodb')) {
-  console.log('uri', uri);
-  throw new Error('Does not start with mongodb');
-}
-
-console.log('uri', uri);
 
 if (process.env.NODE_ENV === 'development') {
   // In development mode, use a global variable so that the value

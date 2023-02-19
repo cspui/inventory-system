@@ -14,13 +14,19 @@ const Header = ({ title, description, imageUrl }: IProps) => {
   return (
     <Head>
       <title>{title || t('COMMON_TITLE')}</title>
-      <meta property='og:title' content={title || t('COMMON_TITLE')} key='title' />
-      <meta name='twitter:title' content={title || t('COMMON_TITLE')} />
+      <meta property='og:title' content={title || (t('COMMON_TITLE') as string)} key='title' />
+      <meta name='twitter:title' content={title || (t('COMMON_TITLE') as string)} />
       <meta property='og:type' content='website' />
 
-      <meta name='description' content={description || t('COMMON_DESCRIPTION')} />
-      <meta property='og:description' content={description || t('COMMON_DESCRIPTION')} />
-      <meta name='twitter:description' content={description || t('COMMON_DESCRIPTION')} />
+      <meta name='description' content={description || (t('COMMON_DESCRIPTION') as string)} />
+      <meta
+        property='og:description'
+        content={description || (t('COMMON_DESCRIPTION') as string)}
+      />
+      <meta
+        name='twitter:description'
+        content={description || (t('COMMON_DESCRIPTION') as string)}
+      />
 
       {/* <meta property='og:image' content={imageUrl || `https://iili.io/HnohjiN.md.png`} />
       <meta name='twitter:image:src' content={imageUrl || `https://iili.io/HnohjiN.md.png`} /> */}
