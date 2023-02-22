@@ -1,8 +1,9 @@
 export const TABLE_HEADERS = [
   'Id',
   'Name',
-  //   'Status',
+  'Remark',
   'Quantity',
   'Value',
   'Date',
+  'Action',
 ];

@@ -28,8 +28,8 @@ const Header = ({ title, description, imageUrl }: IProps) => {
         content={description || (t('COMMON_DESCRIPTION') as string)}
       />
 
-      {/* <meta property='og:image' content={imageUrl || `https://iili.io/HnohjiN.md.png`} />
-      <meta name='twitter:image:src' content={imageUrl || `https://iili.io/HnohjiN.md.png`} /> */}
+      {/* <meta property='og:image' content={imageUrl || `test.png`} />
+      <meta name='twitter:image:src' content={imageUrl || `test.png`} /> */}
       <meta name='twitter:card' content='summary_large_image' />
 
       <meta

@@ -15,7 +15,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.json(response);
       break;
     case 'PUT':
-      response = await collection.updateOne({ id: bodyObject.id }, { $set: { bodyObject } });
+      response = await collection.updateOne(
+        { id: bodyObject.id },
+        {
+          $set: {
+            name: bodyObject.name,
+            remark: bodyObject.remark,
+            quantity: bodyObject.quantity,
+            value: bodyObject.value,
+            date: bodyObject.date,
+          },
+        }
+      );
       res.json(response);
       break;
     case 'POST':
