@@ -6,7 +6,7 @@ import { useGetRecord } from '@/hooks/useGetRecord';
 import { deleteData, updateData } from '@/utils/helper';
 import { StockRecord } from '@/utils/types';
 
-import Input from '../Input';
+import Input from '../Input/Input';
 
 interface IStockRowProps {
   item: StockRecord;

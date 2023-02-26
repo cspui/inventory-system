@@ -4,7 +4,7 @@ import React from 'react';
 import { useGetRecord } from '@/hooks/useGetRecord';
 import { createData } from '@/utils/helper';
 
-import Input from './Input';
+import Input from './Input/Input';
 
 const AddStock = () => {
   const { push } = useRouter();
